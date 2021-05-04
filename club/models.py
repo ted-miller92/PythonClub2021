@@ -32,7 +32,6 @@ class Resource(models.Model):
     resourceType=models.CharField(max_length=255)
     resourceURL=models.URLField()
     userId=models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    date=models.DateField()
     description=models.TextField()
 
     def __str__(self):
@@ -43,7 +42,7 @@ class Resource(models.Model):
         verbose_name_plural='resources'
 
 class Event(models.Model):
-    title=models.CharField(max_length=255)
+    eventTitle=models.CharField(max_length=255)
     location=models.CharField(max_length=255)
     date=models.DateField()
     time=models.TimeField()
