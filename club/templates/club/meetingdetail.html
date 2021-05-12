@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="col-md-9 col-md-offset-2">
+<h2>Meeting Details</h2>
+<ul>
+    <li>Meeting Name : {{meeting.title}}</li>
+    <li>Meeting Date : {{meeting.date}}</li>
+    <li>Meeting Time : {{meeting.time}}</li>
+    <li>Meeting Location : {{meeting.location}}</li>
+</ul>
+
+<p>{{meeting.title}} will take place at {{meeting.location}} on {{meeting.date}} at {{meeting.time}}.</p>
+</div>
+{% endblock %}

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="col-md-9 col-md-offset-2">
 <h2>Meetings</h2>
 <ul>
     {% for m in meeting_list %}
-    <li>{{ m.title }}</li>
+    <li><a href="{% url 'detail' id=m.id %}">{{ m.title }}</a></li>
     {% endfor %}
 </ul>
+</div>
 {% endblock %}
