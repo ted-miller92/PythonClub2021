@@ -1,6 +1,6 @@
 from django.test import TestCase
 from .models import Meeting, MeetingMinutes, Resource, Event
-
+from .forms import MeetingForm
 # Create your tests here.
 
 class MeetingTest(TestCase):
@@ -37,3 +37,24 @@ class EventTest(TestCase):
     
     def test_table(self):
         self.assertEqual(str(Event._meta.db_table), 'event')
+
+class NewMeetingForm(TestCase):
+    #valid form data
+    def test_meetingform(self):
+        data = {
+            'title' : 'test meeting',
+            'date': '2021-06-06',
+            'time' : 'noon',
+            'location' : 'here'
+        }
+        form=MeetingForm(data)
+        self.assertTrue(form.is_valid)
+    #this test is failing, after trying to rename 'data' still failed
+    def test_MeetingForm_Invalid(self):
+        falseData = {
+            'title' : 'test meeting',
+            'date': 'Soda 2, 2021',
+            'location' : 'here'
+        }
+        form=MeetingForm(falseData)
+        self.assertFalse(form.is_valid)
